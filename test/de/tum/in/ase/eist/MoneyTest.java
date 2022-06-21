@@ -1,8 +1,8 @@
 package de.tum.in.ase.eist;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class MoneyTest {
 
@@ -12,23 +12,30 @@ class MoneyTest {
 	@Test
 	void testSimpleAdd() {
 		Money expected = new Money(26, Currency.CHF);
-		Money observed = m12CHF.add(m14CHF);
-
+		Money observed = m14CHF.add(m12CHF);
+		assertEquals(expected, observed);
 		// TODO Task 2: implement the assertion
-		fail("Test case not implemented yet");
+
 	}
+
+
 
 	@Test
 	void testSimpleSubtract() {
 		// TODO Task 3: implement the test case
-		fail("Test case not implemented yet");
+		Money expected = new Money(2, Currency.CHF);
+		Money observed = m14CHF.subtract(m12CHF);
+		assertEquals(expected, observed);
 	}
 
 	@Test
 	void testInvalidAdd() {
 		Money m14USD = new Money(14, Currency.USD);
 
+		assertThrows(IllegalArgumentException.class, () -> {
+			m12CHF.add(m14USD);
+		});
 		// TODO Task 4: implement the test case
-		fail("Test case not implemented yet");
+
 	}
 }
