@@ -27,8 +27,11 @@ public class Money {
 
 	public Money subtract(Money money) {
 		// TODO Task 1: implement this method
-		throw new UnsupportedOperationException("Method not implemented yet");
+		return new Money(amount() - money.amount(), currency());
+
 	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -49,4 +52,7 @@ public class Money {
 		Money other = (Money) obj;
 		return amount == other.amount && currency == other.currency;
 	}
+
+
+
 }
